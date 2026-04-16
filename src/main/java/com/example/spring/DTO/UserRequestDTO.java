@@ -1,16 +1,10 @@
-package com.example.spring.entity;
+package com.example.spring.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "my_user")
-public class User {
+public class UserRequestDTO {
     private String name;
     private int age;
 
-
-    public User(String name, int age) {
+    public UserRequestDTO(String name, int age) {
         this.name = name;
         this.age = age;
     }
