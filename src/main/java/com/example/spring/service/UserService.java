@@ -1,7 +1,8 @@
 package com.example.spring.service;
 
 import com.example.spring.DTO.UserRequestDTO;
+import com.example.spring.DTO.response.UserResponseDTO;
 
 public interface UserService {
-    void save(UserRequestDTO userDTO);
+    UserResponseDTO save(UserRequestDTO userDTO);
 }

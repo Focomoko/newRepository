@@ -1,21 +1,12 @@
-package com.example.spring.entity;
+package com.example.spring.DTO.response;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "my_user")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserResponseDTO {
     private Long id;
     private String name;
     private int age;
 
-    public User() {
-
-    }
-
-    public User(String name, int age) {
+    public UserResponseDTO(Long id, String name, int age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }

@@ -1,6 +1,7 @@
 package com.example.spring.service;
 
 import com.example.spring.DTO.UserRequestDTO;
+import com.example.spring.DTO.response.UserResponseDTO;
 import com.example.spring.entity.User;
 import com.example.spring.mapper.UserMapper;
 import com.example.spring.repository.UserRepository;
@@ -20,9 +21,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(UserRequestDTO userDTO) {
+    public UserResponseDTO save(UserRequestDTO userDTO) {
         User user = userMapper.toUser(userDTO);
-        userRepository.save(user);
-        
+        User user1 =  userRepository.save(user);
+        UserResponseDTO saved = userMapper.toDTO(user1);
+        return saved;
     }
 }

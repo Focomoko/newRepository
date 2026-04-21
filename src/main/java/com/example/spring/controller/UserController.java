@@ -1,6 +1,7 @@
 package com.example.spring.controller;
 
 import com.example.spring.DTO.UserRequestDTO;
+import com.example.spring.DTO.response.UserResponseDTO;
 import com.example.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +18,9 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+
     @PostMapping("/save")
-    public void save(@RequestBody UserRequestDTO userRequestDTO) {
-        userService.save(userRequestDTO);
+    public UserResponseDTO save(@RequestBody UserRequestDTO userRequestDTO) {
+        return userService.save(userRequestDTO);
     }
 }
