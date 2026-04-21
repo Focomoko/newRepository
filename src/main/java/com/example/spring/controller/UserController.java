@@ -4,10 +4,7 @@ import com.example.spring.DTO.UserRequestDTO;
 import com.example.spring.DTO.response.UserResponseDTO;
 import com.example.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -22,5 +19,9 @@ public class UserController {
     @PostMapping("/save")
     public UserResponseDTO save(@RequestBody UserRequestDTO userRequestDTO) {
         return userService.save(userRequestDTO);
+    }
+    @GetMapping("/findId")
+    public UserResponseDTO findById(@RequestParam ("id") Long id) {
+        return userService.findById(id);
     }
 }
