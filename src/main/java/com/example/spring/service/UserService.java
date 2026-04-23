@@ -10,5 +10,7 @@ public interface UserService {
     UserResponseDTO save(UserRequestDTO userDTO);
     UserResponseDTO findById(Long id);
     List<UserResponseDTO> findAll();
+    void  deleteById(Long id);
+
 
 }
