@@ -34,4 +34,8 @@ public class UserController {
     public UserResponseDTO deleteById(@RequestParam ("id") Long id) {
         return userService.deleteById(id);
     }
+    @GetMapping("/getAllSumAge")
+    public int getAllAgeSum() {
+        return userService.getAllAgeSum();
+    }
 }

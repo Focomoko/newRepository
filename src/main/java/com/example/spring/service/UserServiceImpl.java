@@ -61,4 +61,14 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.toDTO(user);
     }
+
+    @Override
+    public int getAllAgeSum() {
+        List<User> users = userRepository.findAll();
+
+
+        return users.stream()
+                .mapToInt(e -> e.getAge())
+                .sum();
+    }
 }

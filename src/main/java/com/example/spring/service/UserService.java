@@ -12,5 +12,7 @@ public interface UserService {
     List<UserResponseDTO> findAll();
     UserResponseDTO  deleteById(Long id);
 
+    int getAllAgeSum();
+
 
 }
