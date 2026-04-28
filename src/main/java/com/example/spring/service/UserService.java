@@ -13,6 +13,8 @@ public interface UserService {
     UserResponseDTO  deleteById(Long id);
 
     int getAllAgeSum();
+    UserResponseDTO getMaxAge();
+
 
 
 }

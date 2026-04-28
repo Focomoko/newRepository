@@ -38,4 +38,8 @@ public class UserController {
     public int getAllAgeSum() {
         return userService.getAllAgeSum();
     }
+    @GetMapping("/getMaxAge")
+    public UserResponseDTO getMaxAge() {
+        return userService.getMaxAge();
+    }
 }
