@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDTO save(UserRequestDTO userDTO) {
         User user = userMapper.toUser(userDTO);
-        User user1 =  userRepository.save(user);
+        User user1 = userRepository.save(user);
         UserResponseDTO saved = userMapper.toDTO(user1);
         return saved;
     }
@@ -41,13 +41,13 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFoundException("not found" + id);
         }
         User user = userOptional.get();
-        return  userMapper.toDTO(user);
+        return userMapper.toDTO(user);
     }
 
     @Override
     public List<UserResponseDTO> findAll() {
         return userRepository.findAll().stream()
-                .map( e-> userMapper.toDTO(e))
+                .map(e -> userMapper.toDTO(e))
                 .toList();
     }
 
@@ -80,5 +80,15 @@ public class UserServiceImpl implements UserService {
                 .max(Comparator.comparing(User::getAge))
                 .map(e -> userMapper.toDTO(e))
                 .orElseThrow();
+    }
+
+    @Override
+    public List<UserResponseDTO> findByIdRange(Long min, Long max) {
+        List<User> users = userRepository.findAll();
+        return users.stream()
+                .filter(e -> e.getId() >= min)
+                .filter(e -> e.getId() <= max)
+                .map(e -> userMapper.toDTO(e))
+                .toList();
     }
 }
