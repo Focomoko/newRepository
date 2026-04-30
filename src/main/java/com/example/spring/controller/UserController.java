@@ -46,4 +46,8 @@ public class UserController {
     public List<UserResponseDTO> findByIdRange(@RequestParam ("min") Long min, @RequestParam ("max") Long max) {
         return userService.findByIdRange(min,max);
     }
+    @GetMapping("getRangeAge")
+    public int getRangeAge (@RequestParam ("min") Long min, @RequestParam("max") Long max) {
+        return userService.getRangeAge(min,max);
+    }
 }

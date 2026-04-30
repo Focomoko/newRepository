@@ -91,4 +91,15 @@ public class UserServiceImpl implements UserService {
                 .map(e -> userMapper.toDTO(e))
                 .toList();
     }
+
+    @Override
+    public int getRangeAge(Long min, Long max) {
+        List<User> users = userRepository.findAll();
+
+        return users.stream()
+                .filter(e -> e.getId() >= min)
+                .filter(e -> e.getId() <= max)
+                .mapToInt(e -> e.getAge())
+                .sum();
+    }
 }
