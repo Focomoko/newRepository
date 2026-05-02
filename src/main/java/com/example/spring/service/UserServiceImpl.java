@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserResponseDTO> findAll() {
-        return userRepository.findAll().stream()
+        return userRepository.findAllByDeletedFalse().stream()
                 .map(e -> userMapper.toDTO(e))
                 .toList();
     }
