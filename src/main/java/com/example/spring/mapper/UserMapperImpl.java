@@ -10,14 +10,16 @@ public class UserMapperImpl implements UserMapper{
     @Override
     public User toUser(UserRequestDTO userRequestDTO) {
         return new User(userRequestDTO.getName(),
-                userRequestDTO.getAge());
+                userRequestDTO.getAge(),
+                userRequestDTO.getDeleted());
     }
 
     @Override
     public UserResponseDTO toDTO(User user) {
         return new UserResponseDTO(user.getId(),
                 user.getName(),
-                user.getAge());
+                user.getAge(),
+                user.getDeleted());
     }
 
 

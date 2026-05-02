@@ -50,4 +50,8 @@ public class UserController {
     public int getRangeAge (@RequestParam ("min") Long min, @RequestParam("max") Long max) {
         return userService.getRangeAge(min,max);
     }
+    @DeleteMapping("/deleted")
+    public UserResponseDTO softDeleted(@RequestParam("id") Long id) {
+        return userService.softDeleted(id);
+    }
 }

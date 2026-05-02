@@ -10,14 +10,16 @@ public class User {
     private Long id;
     private String name;
     private int age;
+    private  Boolean deleted;
 
     public User() {
 
     }
 
-    public User(String name, int age) {
+    public User(String name, int age, Boolean deleted) {
         this.name = name;
         this.age = age;
+        this.deleted = deleted;
     }
 
     public Long getId() {
@@ -43,4 +45,13 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
 }

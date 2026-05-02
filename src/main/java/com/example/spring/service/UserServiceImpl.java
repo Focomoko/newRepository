@@ -94,12 +94,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int getRangeAge(Long min, Long max) {
-        List<User> users = userRepository.findAll();
-
-        return users.stream()
+        return userRepository.findAll().stream()
                 .filter(e -> e.getId() >= min)
                 .filter(e -> e.getId() <= max)
                 .mapToInt(e -> e.getAge())
                 .sum();
+    }
+
+    @Override
+    public UserResponseDTO softDeleted(Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()) {
+            throw new RuntimeException();
+        }
+        User user = userOptional.get();
+        user.setDeleted(true);
+        userRepository.save(user);
+        return userMapper.toDTO(user);
     }
 }

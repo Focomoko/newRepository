@@ -4,11 +4,12 @@ public class UserResponseDTO {
     private Long id;
     private String name;
     private int age;
-
-    public UserResponseDTO(Long id, String name, int age) {
+    private Boolean deleted;
+    public UserResponseDTO(Long id, String name, int age,Boolean deleted) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.deleted = deleted;
     }
 
     public Long getId() {
@@ -33,5 +34,13 @@ public class UserResponseDTO {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }

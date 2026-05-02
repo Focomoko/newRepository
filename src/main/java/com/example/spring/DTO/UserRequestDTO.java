@@ -3,10 +3,12 @@ package com.example.spring.DTO;
 public class UserRequestDTO {
     private String name;
     private int age;
+    private Boolean deleted;
 
-    public UserRequestDTO(String name, int age) {
+    public UserRequestDTO(String name, int age, Boolean deleted) {
         this.name = name;
         this.age = age;
+        this.deleted = deleted;
     }
 
     public String getName() {
@@ -23,5 +25,13 @@ public class UserRequestDTO {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }
