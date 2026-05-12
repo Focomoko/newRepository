@@ -19,6 +19,7 @@ public interface UserService {
     int getRangeAge(Long min, Long max);
 
     UserResponseDTO softDeleted(Long id);
+    int getTotalAgeDeleted();
 
 
 

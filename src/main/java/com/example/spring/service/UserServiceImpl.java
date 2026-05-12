@@ -112,4 +112,14 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
         return userMapper.toDTO(user);
     }
+
+    @Override
+    public int getTotalAgeDeleted() {
+
+        return userRepository.findAllByDeletedFalse().stream()
+                .filter(e-> e.getAge() > 16)
+                .mapToInt(e -> e.getAge())
+                .sum();
+    }
+
 }
