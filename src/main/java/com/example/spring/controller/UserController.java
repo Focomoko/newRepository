@@ -58,4 +58,8 @@ public class UserController {
     public int totalAge() {
         return userService.getTotalAgeDeleted();
     }
+    @GetMapping("/saveValidated")
+    public UserResponseDTO saveValidated(@RequestBody UserRequestDTO userRequestDTO) {
+        return userService.saveValidated(userRequestDTO);
+    }
 }
