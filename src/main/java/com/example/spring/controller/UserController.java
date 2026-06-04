@@ -72,4 +72,9 @@ public class UserController {
     public UserResponseDTO xudoyKot() {
         return userService.getMaxAge();
     }
+    @GetMapping("/getXudoy2")
+    public UserResponseDTO xudoyKot2() {
+        return userService.getMaxAge();
+    }
+
 }
