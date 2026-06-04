@@ -76,5 +76,10 @@ public class UserController {
     public UserResponseDTO xudoyKot2() {
         return userService.getMaxAge();
     }
+    @GetMapping("/getXudoy3")
+    public UserResponseDTO xudoyKot3() {
+        // Good code implement
+        return userService.getMaxAge();
+    }
 
 }
