@@ -67,19 +67,12 @@ public class UserController {
     public int totalAge() {
         return userService.getTotalAgeDeleted();
     }
-
-    @GetMapping("/getXudoy")
-    public UserResponseDTO xudoyKot() {
-        return userService.getMaxAge();
+    @GetMapping("/saveValidated")
+    public UserResponseDTO saveValidated(@RequestBody UserRequestDTO userRequestDTO) {
+        return userService.saveValidated(userRequestDTO);
     }
-    @GetMapping("/getXudoy2")
-    public UserResponseDTO xudoyKot2() {
-        return userService.getMaxAge();
+    @GetMapping("findByMyId")
+    public UserResponseDTO findByMyId(@RequestParam("id") Long id) {
+        return userService.findByMyId(id);
     }
-    @GetMapping("/getXudoy3")
-    public UserResponseDTO xudoyKot3() {
-        // Good code implement
-        return userService.getMaxAge();
-    }
-
 }

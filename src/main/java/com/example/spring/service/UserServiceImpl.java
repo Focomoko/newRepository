@@ -117,9 +117,34 @@ public class UserServiceImpl implements UserService {
     public int getTotalAgeDeleted() {
 
         return userRepository.findAllByDeletedFalse().stream()
-                .filter(e-> e.getAge() > 16)
+                .filter(e -> e.getAge() > 16)
                 .mapToInt(e -> e.getAge())
                 .sum();
     }
 
+    @Override
+    public UserResponseDTO saveValidated(UserRequestDTO userRequestDTO) {
+        User result = null;
+        for (int i = 0; i < userRequestDTO.getName().length(); i++) {
+            if (Character.isDigit(userRequestDTO.getName().charAt(i))) {
+                throw new RuntimeException();
+            } else if (userRequestDTO.getName().length() - 1 == i) {
+                User user = userMapper.toUser(userRequestDTO);
+                result = userRepository.save(user);
+            }
+        }
+        return userMapper.toDTO(result);
+    }
+    @Override
+    public UserResponseDTO findByMyId(Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()) {
+            throw new RuntimeException();
+        }
+        User user = userOptional.get();
+        return userMapper.toDTO(user);
+    }
+    private void print () {
+        System.out.println("test");
+    }
 }
