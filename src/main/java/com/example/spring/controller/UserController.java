@@ -62,4 +62,8 @@ public class UserController {
     public UserResponseDTO saveValidated(@RequestBody UserRequestDTO userRequestDTO) {
         return userService.saveValidated(userRequestDTO);
     }
+    @GetMapping("findByMyId")
+    public UserResponseDTO findByMyId(@RequestParam("id") Long id) {
+        return userService.findByMyId(id);
+    }
 }

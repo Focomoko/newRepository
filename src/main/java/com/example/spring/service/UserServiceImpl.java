@@ -135,4 +135,16 @@ public class UserServiceImpl implements UserService {
         }
         return userMapper.toDTO(result);
     }
+    @Override
+    public UserResponseDTO findByMyId(Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()) {
+            throw new RuntimeException();
+        }
+        User user = userOptional.get();
+        return userMapper.toDTO(user);
+    }
+    private void print () {
+        System.out.println("test");
+    }
 }

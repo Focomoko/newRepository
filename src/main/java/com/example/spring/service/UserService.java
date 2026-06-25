@@ -21,9 +21,7 @@ public interface UserService {
     UserResponseDTO softDeleted(Long id);
     int getTotalAgeDeleted();
     UserResponseDTO saveValidated(UserRequestDTO userRequestDTO);
-
-
-
+    UserResponseDTO findByMyId(Long id);
 
 
 }
